@@ -19,10 +19,10 @@ if opcion ==1 :
         productos_registrados.append(producto)
         opcion =(input("Ingrese * para terminar de ingresaar producto: "))
     opcion =int((input("Ingrese la opcion: ")))
-if opcion==2:
+if opcion==2 :
     print(productos_registrados)
     opcion =int((input("Ingrese la opcion 3 para bucar por codigo y modificar: ")))
-if opcion==3:
+if opcion==3 :
     codigo_buscar=int(input("Ingrese el codigo del producto a consultar : "))
     if codigo_buscar==productos_registrados(producto['codigo']):
         print("melo")
