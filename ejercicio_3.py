@@ -8,7 +8,7 @@
 # 5. Digitar 0 para SALIR
 
 
-opcion =int((input("Ingrese la opcion: ")))
+opcion =int((input("Ingrese el numero 1 para añadir producto: ")))
 productos_registrados=[]
 if opcion ==1 :
     while (opcion !="*"):
@@ -17,12 +17,42 @@ if opcion ==1 :
         precio= float(input("ingrese el valor del articulo "))
         producto ={'nombre':nombre, 'codigo':codigo, 'precio':precio}
         productos_registrados.append(producto)
-        opcion =(input("Ingrese * para terminar de ingresaar producto: "))
-    opcion =int((input("Ingrese la opcion: ")))
+        opcion =(input("Ingrese * para terminar de ingresar productos, o culquier tecla para seguir añadiendo: "))
+    opcion =int((input("Ingrese el numero 2 para ver los productos: ")))
 if opcion==2 :
     print(productos_registrados)
-    opcion =int((input("Ingrese la opcion 3 para bucar por codigo y modificar: ")))
+    opcion =int((input("Ingrese el numero 3 para buscar por codigo y modificar: ")))
 if opcion==3 :
     codigo_buscar=int(input("Ingrese el codigo del producto a consultar : "))
-    if codigo_buscar==productos_registrados(producto['codigo']):
-        print("melo")
+    for producto in productos_registrados:
+        if codigo_buscar == (producto['codigo']):
+            print(producto['codigo'], producto['nombre'], producto['precio'])
+            seleccion_para_cambio=int((input("1, para combiar codigo, 2 para cambiar nombre, y 3 para cambiar precio, y 4 paraeliminar el producto ")))
+            if seleccion_para_cambio == 1:
+                codigo_nuevo=int(input("Ingrese el nuevo codigo: "))
+                producto['codigo'] = codigo_nuevo
+                print(producto)
+                print("Cambio guardado con exito!")
+                opcion =int((input("Ingrese el numero 1 para ingresar un nuevo producto, 2 para ver los productos o 3 para buscar ymodificar productos")))
+            if seleccion_para_cambio == 2:
+                nombre_nuevo=input("Ingrese el nuevo nombre: ")
+                producto['nombre'] = nombre_nuevo
+                print(producto)
+                print("Cambio guardado con exito!")
+                opcion =int((input("Ingrese el numero 1 para ingresar un nuevo producto, 2 para ver los productos o 3 para buscar ymodificar productos")))
+            if seleccion_para_cambio == 3:
+                precio_nuevo=int(input("Ingrese el precio codigo: "))
+                producto['precio'] = precio_nuevo
+                print(producto)
+                print("Cambio guardado con exito!")
+                opcion =int((input("Ingrese el numero 1 para ingresar un nuevo producto, 2 para ver los productos o 3 para buscar ymodificar productos")))
+            if seleccion_para_cambio == 4:
+                del(productos_registrados[producto])
+                print("producto eliminado con exito!")
+                opcion =int((input("Ingrese el numero 1 para ingresar un nuevo producto")))
+            print(producto['codigo'], producto['nombre'], producto['precio'])
+        if opcion == 9:
+            exit()
+
+
+
